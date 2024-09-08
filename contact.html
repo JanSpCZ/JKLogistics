@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <title>JKLogistics</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Scope+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+     <!--LOGO-->
+     <header class="header">
+        <a href="#" class="logo"><img src="img/logo.png" alt=""></a>
+
+        <!--ICONS-->
+        <input type="checkbox" id="check">
+        <label for="check" class="icons">
+            <i class='bx bx-menu' id="menu-icon"></i>
+            <i class='bx bx-x' id="close-icon" ></i>
+        </label>
+
+            <!--NAVBAR-->
+            <nav class="navbar">
+                <a href="index.html" style="--i:0;">O nás</a>
+                <a href="servis.html" style="--i:1;">Autoservis</a>
+                <a href="logistika.html" style="--i:2;">Logistika</a>
+                <a href="tow.html" style="--i:3;">Odtahová služba</a>
+                <a href="#" style="--i:4;">Kontakt</a>
+            </nav>
+    </header>
+
+    <!--NADPIS-->
+    <div class="contact-header">
+        <h2>KONTAKT</h2>
+    </div>
+
+    <div class="contact-about">
+        <div class="contact-about-text">
+            <h3>Navštivte nás</h3>
+            <hr>
+            <p> <strong><span>Najdete nás na adrese:</span></strong> <br>
+                Husova 1 <br>
+                551 01 <br>
+                Jaroměř <br> <br>
+                <span>Telefonní číslo: </span><br><a class="tel" href="tel:+420 607 671 729">+420 607 671 729</a><br>
+                <span>Telefonní číslo: </span><br><a class="tel" href="tel:+420 723 122 693">+420 723 122 693</a>
+
+            </p>                
+        </div>
+        <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d378.41172837330026!2d15.913187337238327!3d50.35460980351829!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470e875e0c912aa1%3A0x193cd1220f535333!2sTesco!5e0!3m2!1sen!2scz!4v1698043704437!5m2!1sen!2scz" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+    <!--FORMULÁŘ-->
+    <div class="contact-container">
+        <form action="mailer.php" method="post" class="box">
+            <h3>Kontaktujte nás</h3>
+            <input type="text" name="name" placeholder="Vaše jméno" required>
+            <input type="email" name="email" placeholder="E-mail" required>
+            <input type="text" name="tel" placeholder="Telefonní číslo" required>
+            <textarea name="message" rows="4" placeholder="Zpráva"></textarea>
+            <button type="submit">Odeslat</button>
+        </form>
+    </div>
+
+    <!--FOOTER-->
+    <section class="footer">
+        <div class="social">
+            <a class="tel" href="tel:+420 123 456 789">TEL: +420 123 456 789</a>
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/repairmen_jk/"><i class="fab fa-instagram"></i></a>
+        </div>
+        <ul class="list">
+            <li>
+                <a href="index.html">Domů</a>
+            </li>
+            <li>
+                <a href="servis.html">Autoservis</a>
+            </li>
+            <li>
+                <a href="logistika.html">Logistika</a>
+            </li>
+            <li>
+                <a href="tow.html">Odtahová služba</a>
+            </li>
+            <li>
+                <a href="#">Kontakt</a>
+            </li>
+        </ul>
+        <p class="copyright">JK Logistics @ 2023</p>
+    </section>
+</body>
+</html>

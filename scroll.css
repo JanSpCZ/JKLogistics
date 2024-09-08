@@ -1,0 +1,50 @@
+/********SCROLL ANIMACE********/
+section {
+    overflow: hidden;
+}
+section .about-content-text,
+section .about-content-img {
+    transition: .5s;
+}
+.sec-1 .about-content-text {
+    opacity: 0;
+    transform: translateX(-50%);
+}
+.sec-1 .about-content-img {
+    opacity: 0;
+    transform: translateX(50%);
+}
+.sec-1.show-animate .about-content-text,
+.sec-1.show-animate .about-content-img {
+    opacity: 1;
+    transform: translateX(0);
+}
+/**********/
+.sec-2 .container {
+    transition: .5s;
+    opacity: 0;
+    transform: translateY(100%);
+}
+.sec-2.show-animate .container {
+    opacity: 1;
+    transform: translateY(0);
+}
+/**********/
+.sec-3 .footer-about-text,
+.sec-3 .map {
+    transition: .5s;
+}
+.sec-3 .footer-about-text {
+    opacity: 0;
+    transform: translateX(-50%);
+}
+.sec-3 .map {
+    opacity: 0;
+    transform: translateX(50%);
+}
+.sec-3.show-animate .footer-about-text,
+.sec-3.show-animate .map {
+    opacity: 1;
+    transform: translateX(0);
+}
+

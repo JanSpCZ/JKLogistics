@@ -1,0 +1,837 @@
+/*COLORS:
+    background: #F9F7F7
+    font: #112D4E
+    divs: #DBE2EF
+    second color: #3F72AF
+    gradient colors: #087ee1, #05e8ba
+    old světle modrá: #64CCC5
+
+    font header: font-family: 'Audiowide', cursive;
+*/
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+    scroll-behavior: smooth;
+}
+body {
+    min-height: 100vh;
+    background-color: #393E46;
+    overflow-x: hidden;
+}
+/*HEADER*/
+.back-video {
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: auto;
+    z-index: -1;
+    overflow: visible;
+    position: relative;
+}
+.back-video video {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    aspect-ratio: 16/9;
+    filter: brightness(0.75);
+}
+.video-header {
+    width: 100%;
+    position: absolute;
+    top: 40%;
+    left: 0;
+}
+.video-header h1 {
+    margin: 0 auto;
+    display: block;
+    text-align: center;
+    font-size: 8vw;
+    color: #EEEEEE;
+    font-weight: 600;
+    font-family: 'Audiowide', cursive;
+}
+.header {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    padding: 1rem 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+.header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .1);
+    backdrop-filter: blur(15px);
+    z-index: -1;
+}
+.logo {
+    float: left;    
+}
+.logo img {
+    max-width: 55px;
+    float: left;
+    margin: 0 10px 0 0;
+}
+.navbar a {
+    font-size: 1.15rem;
+    text-decoration: none;
+    padding: .3em;
+    color: #EEEEEE;
+    font-weight: 600;
+    margin-left: 2.5rem;
+    background: linear-gradient(to right, rgba(219, 226, 239, 0), rgba(219, 226, 239, 0)),
+                linear-gradient(to right, rgba(35, 41, 49, 1), rgba(78, 204, 163, 1));
+    background-size: 100% 3px, 0 3px;
+    background-position: 100% 100%, 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size 200ms;
+}
+.navbar a:hover {
+    background-size: 0 3px, 100% 3px;
+}
+#check {
+    display: none;
+}
+.icons {
+    position: absolute;
+    right: 5%;
+    font-size: 2.8rem;
+    color: #EEEEEE;
+    cursor: pointer;
+    display: none;
+}
+/*MAIN*/
+.about {
+    text-align: center;
+    align-items: center;
+    font-weight: 400;
+    border-bottom: 3px solid #888;
+    width: 40%;
+    display: block;
+    margin: 0 auto;
+    margin-top: 6vh;
+    color: #EEEEEE;
+    padding-bottom: 10px;
+}
+.about h2 {
+    font-size: 4.5vw;
+}
+.about span {
+    color: #4ECCA3;
+    font-weight: 700;
+}
+.about-content {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 2rem;
+}
+.about-content-text {
+    width: 450px;
+    font-size: 14px;
+    color: #EEEEEE;
+}
+.about-content-text h3 {
+    font-size: 28px;
+    padding-bottom: 1rem;
+}
+.about-content-text hr {
+    opacity: .5;
+    margin-bottom: 1rem;
+}
+.about-content-img {
+    width: 450px;
+}
+.about-content-img img {
+    border-radius: 10px;
+    width: 100%;
+    box-shadow: #393E46 10px 10px 5px -3px, #4ECCA3 10px 10px;
+}
+.services {
+    text-align: center;
+    align-items: center;
+    font-weight: 400;
+    border-bottom: 3px solid #888;
+    width: 50%;
+    display: block;
+    margin: 0 auto;
+    margin-top: 4vh;
+    color: #EEEEEE;
+    padding-bottom: 10px;
+}
+.services h2 {
+    font-size: 4.5vw;
+}
+.services span {
+    color: #4ECCA3;
+    font-weight: 700;
+}
+/*NAŠE SLUŽBY*/
+.services-cards {
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 6vh;
+    align-items: center;
+    color: #EEEEEE;
+    flex-wrap: wrap;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+.container {
+    width: 320px;
+    height: 320px;
+    perspective: 600px;
+    padding: 15px;
+}
+.container:hover > .card {
+    transform: rotateY(180deg);
+}
+.card {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition: transform .25s;
+    transform-style: preserve-3d;
+}
+.front,
+.back {
+    width: 100%;
+    height: 100%;
+    background: #232931;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+    position: absolute;
+    backface-visibility: hidden;
+    padding: 1rem;
+}  
+.back {
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: #EEEEEE;
+    font-weight: 500;
+    padding: 50px;
+}
+.back h1 {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: #4ECCA3;
+}
+.front {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+    font-size: 20px;
+    background: linear-gradient(45deg, #232931, #232931, #4ECCA3);
+    color: #EEEEEE;
+    font-weight: 700;
+}
+.card-icon {
+    width: 80px;
+}
+.card-icon img {
+    width: 100%;
+    filter: invert(100%) sepia(0%) saturate(7464%) hue-rotate(293deg) brightness(109%) contrast(88%);
+}
+
+.card-list {
+    list-style-type: none;
+}
+/*TLAČÍTKO NA KARTĚ*/
+.card-btn {
+    width: 100%;
+    height: 60px;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    background: #445069;
+    text-decoration: none;
+    font-size: 18px;
+    color: #EEEEEE;
+    font-weight: 700;
+    transition: all .3s;
+    box-shadow: 5px 5px #000;
+    display: block;
+    position: relative;
+}
+.back a {
+    text-decoration: none;
+}
+.card-btn span {
+    color: #EEEEEE;
+}
+.card-btn:after {
+    content: '»';
+    position: absolute;
+    opacity: 0;  
+    top: 18px;
+    right: -1px;
+    transition: 0.3s;
+}
+  
+.card-btn:hover{
+    padding-right: 24px;
+    padding-left: 8px;
+}
+  
+.card-btn:hover:after {
+    opacity: 1;
+    right: 25px;
+}
+/********NAVŠTIVTE NÁS FOOTER********/
+.footer-background {
+    background-image: url("img/photo-logistika.jpg");
+    min-height: 400px;
+    width: 100%;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: brightness(0.75);
+    margin-top: 10vh;
+}
+
+.footer-about {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+    position: relative;
+    align-items: center;
+    padding: 2rem;
+    top: -410px;
+}
+.footer-about-text {
+    width: 450px;
+    font-size: 20px;
+    color: #EEEEEE;
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.footer-about-text p span {
+    color: #4ECCA3;
+}
+.footer-about-text h3 {
+    font-size: 28px;
+    padding-bottom: 1rem;
+}
+.footer-about-text hr {
+    opacity: .5;
+    margin-bottom: 1rem;
+}
+.footer-about-text button{
+    color: #000;
+    background-color: #4ECCA3;
+    border: 2px solid #4ECCA3;
+    position: absolute;
+    right: 15px;
+    bottom: 15px;
+    padding: 8px;
+    border-radius: 5px;
+    font-weight: 700;
+    transition: .2s;
+    cursor: pointer;
+}
+.footer-about-text button:hover {
+    background-color: #393E46;
+    color: #4ECCA3;
+}
+.map {
+    width: 500px;
+    height: 350px;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+/********FOOTER ODKAZY********/
+.footer {
+    font-family: 'Segoe UI';
+    font-weight: 400;
+    background-color: #ededed;
+    padding: 40px 0;
+    width: 100%;
+}
+.footer .social {
+    text-align: center;
+    padding-bottom: 25px;
+    color: #4b4c4d;
+}
+.footer .social a {
+    font-size: 24px;
+    color: inherit;
+    border: 1px solid #ccc;
+    width: 40px;
+    height: 40px;
+    line-height: 38px;
+    display: inline-block;
+    text-align: center;
+    border-radius: 50%;
+    margin: 0 8px;
+    opacity: 0.75;
+}
+.footer .social a:hover {
+    opacity: 0.9;
+}
+.footer .social .tel {
+    width: 180px;
+    font-size: 16px;
+    text-decoration: none;
+    border: none;
+}
+.footer ul {
+    margin-top: 0;
+    padding: 0;
+    list-style: none;
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 0;
+    text-align: center;
+}
+.footer ul li {
+    display: inline-block;
+    padding: 0 15px;
+}
+.footer ul li a {
+    color: inherit;
+    text-decoration: none;
+    opacity: 0.8;
+}
+.footer ul li a:hover {
+    opacity: 1;
+}
+.footer .copyright {
+    margin-top: 15px;
+    text-align: center;
+    font-size: 13px;
+    color: #aaa;
+}
+
+/********AUTOSERVIS********/
+.servis-back-header {
+    background-image: url("img/servis.jpg");
+    min-height: 667px;
+    width: 100%;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: brightness(0.5);
+    transition: filter 0.4s;
+}
+.servis-back-header:hover {
+    filter: brightness(1);
+}
+/********LOGISTIKA********/
+.log-back-header {
+    background-image: url("img/photo-logistika.jpg");
+    min-height: 667px;
+    width: 100%;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: brightness(0.5);
+    transition: filter 0.4s;
+}
+.log-back-header:hover {
+    filter: brightness(1);
+}
+/*IVECO Card*/
+.log-front,
+.back {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+    position: absolute;
+    backface-visibility: hidden;
+    padding: 1rem;
+}  
+.log-front {
+    background-image: url("img/iveco-van.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    font-size: 20px;
+    color: #000;
+    font-weight: 700;
+}
+/*CADDY CARD*/
+.log-front2,
+.back {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+    position: absolute;
+    backface-visibility: hidden;
+    padding: 1rem;
+}  
+.log-front2 {
+    background-image: url("img/caddy.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    font-size: 20px;
+    color: #000;
+    font-weight: 700;
+}
+/*BRABUS CARD*/
+.log-front3,
+.back {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+    position: absolute;
+    backface-visibility: hidden;
+    padding: 1rem;
+}  
+.log-front3 {
+    background-image: url("img/brabus.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    font-size: 20px;
+    color: #000;
+    font-weight: 700;
+}
+/*TRANSIT CARD*/
+.log-front4,
+.back {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+    position: absolute;
+    backface-visibility: hidden;
+    padding: 1rem;
+}  
+.log-front4 {
+    background-image: url("img/transit.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    font-size: 20px;
+    color: #000;
+    font-weight: 700;
+}
+/*SCOOTER CARD*/
+.log-front5,
+.back {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+    position: absolute;
+    backface-visibility: hidden;
+    padding: 1rem;
+}  
+.log-front5 {
+    background-image: url("img/scooter.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    font-size: 20px;
+    color: #000;
+    font-weight: 700;
+}
+/*JET CARD*/
+.log-front6,
+.back {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+    position: absolute;
+    backface-visibility: hidden;
+    padding: 1rem;
+}  
+.log-front6 {
+    background-image: url("img/jet.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    font-size: 20px;
+    color: #000;
+    font-weight: 700;
+}
+/********ODTAHOVÁ SLUŽBA********/
+.tow-back-header {
+    background-image: url("img/tow-truck.png");
+    min-height: 500px;
+    width: 100%;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: brightness(0.5);
+    transition: filter 0.4s;
+}
+.tow-back-header:hover {
+    filter: brightness(1);
+}
+.call-us {
+    color: #F0F0F0;
+    font-size: 20px;
+    display: block;
+    margin-top: 50px;
+    margin-left: 14vw;
+    align-items: center;
+    width: 100%;
+}
+.call-us a {
+    margin-left: 10px;
+}
+.call-us a button{
+    color: #000;
+    background-color: #4ECCA3;
+    border: 2px solid #4ECCA3;
+    padding: 8px;
+    border-radius: 5px;
+    font-weight: 700;
+    transition: .2s;
+    cursor: pointer;
+    margin-bottom: 10rem;
+}
+.call-us a button:hover {
+    background-color: #393E46;
+    color: #4ECCA3;
+}
+/********KONTAKT********/
+.contact-container {
+    width: 100%;
+    height: 100vh;
+    background: #393E46;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+form {
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    padding: 2vw 4vw;
+    width: 90%;
+    max-width: 600px;
+    border-radius: 10px;
+}
+form h3 {
+    color: #393E46;
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+form input, form textarea {
+    border: 0;
+    margin: 10px 0;
+    padding: 20px;
+    outline: none;
+    background: #f5f5f5;
+    font-size: 16px;
+}
+form input:focus, form textarea:focus {
+    border: 2px solid #4ECCA3;
+}
+form button {
+    padding: 15px;
+    background: #4ECCA3;
+    border: 2px solid #4ECCA3;
+    color: #232931;
+    font-size: 18px;
+    border: 0;
+    outline: none;
+    cursor: pointer;
+    width: 150px;
+    margin: 20px auto 0;
+    border-radius: 20px;
+    transition: .2s;
+}
+form button:hover {
+    background-color: #393E46;
+    color: #4ECCA3;
+}
+.contact-header {
+    text-align: center;
+    align-items: center;
+    border-bottom: 3px solid #888;
+    width: 40%;
+    display: block;
+    margin: 0 auto;
+    margin-top: 13vh;
+    color: #4ECCA3;
+    font-weight: 700;
+    padding-bottom: 10px;
+    font-size: 3.5vw;
+}
+.contact-about {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+    position: relative;
+    align-items: center;
+    padding: 2rem;
+    margin-top: 10vh;
+}
+.contact-about-text {
+    width: 450px;
+    font-size: 20px;
+    color: #EEEEEE;
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.contact-about-text p span {
+    color: #4ECCA3;
+}
+.contact-about-text h3 {
+    font-size: 28px;
+    padding-bottom: 1rem;
+}
+.contact-about-text hr {
+    opacity: .5;
+    margin-bottom: 1rem;
+}
+.contact-about .tel {
+    width: 180px;
+    font-size: 20px;
+    text-decoration: none;
+    border: none;
+    color: #EEEEEE;
+}
+.contact-about .tel:hover {
+    text-decoration: underline;
+}
+/*BREAKPOINTS*/
+@media (max-width: 992px) {
+    body {
+        overflow-x: hidden;
+    }
+    .header {
+        padding: .5rem 5%;
+    }
+    .about-content-text {
+        padding: 2rem;
+    }
+    .about-content-img {
+        width: 350px;
+    }
+    .call-us {
+        text-align: center;
+        margin-left: 0;
+    }
+    .footer-about {
+        flex-wrap: wrap;
+        top: -400px;
+    }
+    .contact-about {
+        flex-wrap: wrap;
+    }
+    .map {
+        min-width: 300px;
+        border-radius: 10px;
+        margin-top: 20px;
+    }
+}
+@media (max-width: 840px) { 
+    .icons {
+        display: inline-flex;
+    }
+    #check:checked~.icons #menu-icon {
+        display: none;
+    }
+    .icons #close-icon {
+        display: none;
+    }
+    #check:checked~.icons #close-icon {
+        display: block;
+    }
+    .navbar {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        height: 0;
+        background: rgba(0, 0, 0, .1);
+        backdrop-filter: blur(15px);
+        box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+        overflow: hidden;
+        transition: .3s ease;
+    }
+    #check:checked~.navbar {
+        height: 18.5rem;
+    }
+    .navbar a {
+        display: block;
+        font-size: 1.1rem;
+        margin: 1.5rem 0;
+        text-align: center;
+        transform: translateY(-50px);
+        opacity: 0;
+        transition: .3s ease;
+    }
+    .navbar a:hover {
+        background-size: 0;
+    }
+    #check:checked~.navbar a {
+        transform: translateY(0);
+        opacity: 1;
+        transition-delay: calc(.15s * var(--i));
+    }
+    .about-content {
+        flex-wrap: wrap;
+    }
+    .about-content-text {
+        padding: 1rem;
+    }
+    .about-content-img {
+        padding: 1rem;
+        min-width: 200px;
+    }
+
+}
